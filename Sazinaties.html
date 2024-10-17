@@ -1,14 +1,18 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="lv">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LAIM Masāžas</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="bg-gray-300 flex ml-64 mr-64">
-        <div id="sidebar" class="w-64 h-screen bg-gray-700">
-            <img src="assets/Logo-White.svg" class="w-44 m-auto mt-8">
+    <body class="bg-gray-300 flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-full md:w-64 h-auto md:h-screen bg-gray-700 p-4 md:py-8">
+            <img src="assets/Logo-White.svg" class="w-44 m-auto mt-4 md:mt-8">
             
-            <ul class="text-white mt-8 p-4 text-lg">
+            <ul class="text-white mt-8 p-4 text-lg text-center md:text-left">
                 <li class="mt-2"><a href="ParMums.html">PAR MUMS</a></li>
                 <li class="mt-2"><a href="Sazinaties.html">SAZINĀTIES</a></li>
                 <li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
@@ -16,30 +20,33 @@
             </ul>
         </div>
 
+        <!-- Main Content -->
         <div id="view" class="w-full p-4">
-            <img src="assets/Bildes/Istaba4.jpg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg">
-            <h1 class="text-2xl font-bold mt-2">LINDA GREIZIŅA</h1>
-            <p>Masiere, ārstniecības presonas reģ. Nr.55750044075</p>
+            <img src="assets/Bildes/Istaba4.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
+            
+            <h1 class="text-2xl font-bold mt-4">LINDA GREIZIŅA</h1>
+            <p>Masiere, ārstniecības personas reģ. Nr. 55750044075</p>
             <p>Ārstniecības iestādes kods: 001000230</p>
             <p class="font-bold">Telefons: Mob. 26843089</p>
             <p class="font-bold">Pēc iepriekšējā pieraksta!</p>
 
-            <h2 class="font-bold text-decoration: underline">Pieņemšanas vieta:</h2>
-            <p>LAIM masāžas SIA, Dīķa iela 44, Rīga, LV-1004, 2. stāvs, 206.kabinets.</p>
+            <h2 class="font-bold underline mt-4">Pieņemšanas vieta:</h2>
+            <p>LAIM masāžas SIA, Dīķa iela 44, Rīga, LV-1004, 2. stāvs, 206. kabinets.</p>
 
-            <p style="color: green;">Personām ar funkcionāliem traucējumiem ir paredzēta ieeja "A", kur blakus atrodas uzbrauktuve un īpašs durvju zvans. Pēc nospiešanas uz pogas Jums palīdzēs reģistratūras darbinieks. Nokļūšana 2. stāvā ir iespējama ar liftu.</p>
+            <p class="mt-4 text-green-600">
+                Personām ar funkcionāliem traucējumiem ir paredzēta ieeja "A", kur blakus atrodas uzbrauktuve un īpašs durvju zvans. Pēc nospiešanas uz pogas Jums palīdzēs reģistratūras darbinieks. Nokļūšana 2. stāvā ir iespējama ar liftu.
+            </p>
 
-            <h1 class="font-bold text-decoration: underline">Pieņemšanas laiki:</h1>
-            <p>P. 9:30 - 17:00</p>
-            <p>O. 10:00 - 18:00</p>
-            <p>T. 9:00 - 17:00</p>
-            <p>C. 12:00 - 20:00</p>
-            <p>P. 9:00 - 13:00</p>
-            <p>S. -</p>
-            <p>Sv. -</p>
-
-        
-
+            <h1 class="font-bold underline mt-4">Pieņemšanas laiki:</h1>
+            <div class="space-y-1">
+                <p>P. 9:30 - 17:00</p>
+                <p>O. 10:00 - 18:00</p>
+                <p>T. 9:00 - 17:00</p>
+                <p>C. 12:00 - 20:00</p>
+                <p>P. 9:00 - 13:00</p>
+                <p>S. -</p>
+                <p>Sv. -</p>
+            </div>
         </div>
     </body>
 </html>
