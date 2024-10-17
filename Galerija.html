@@ -1,14 +1,18 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="lv">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LAIM Masāžas</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="bg-gray-300 flex ml-64 mr-64">
-        <div id="sidebar" class="w-64 h-screen bg-gray-700">
-            <img src="assets/Logo-White.svg" class="w-44 m-auto mt-8">
+    <body class="bg-gray-300 flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-full md:w-64 h-auto md:h-screen bg-gray-700 p-4 md:py-8">
+            <img src="assets/Logo-White.svg" class="w-44 m-auto mt-4 md:mt-8">
             
-            <ul class="text-white mt-8 p-4 text-lg">
+            <ul class="text-white mt-8 p-4 text-lg text-center md:text-left">
                 <li class="mt-2"><a href="ParMums.html">PAR MUMS</a></li>
                 <li class="mt-2"><a href="Sazinaties.html">SAZINĀTIES</a></li>
                 <li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
@@ -16,14 +20,13 @@
             </ul>
         </div>
 
-        <div id="view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-
-            <img src="assets/Bildes/Istaba1.jpg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba2.jpg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba3.jpg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba4.jpg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/linda1.jpeg" class="w-full h-64 object-cover rounded-lg drop-shadow-lg"> 
-            
+        <!-- Image Gallery -->
+        <div id="view" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full p-4">
+            <img src="assets/Bildes/Istaba1.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
+            <img src="assets/Bildes/Istaba2.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
+            <img src="assets/Bildes/Istaba3.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
+            <img src="assets/Bildes/Istaba4.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
+            <img src="assets/Bildes/linda1.jpeg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
         </div>
     </body>
 </html>
