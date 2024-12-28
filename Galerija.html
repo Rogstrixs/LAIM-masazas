@@ -1,32 +1,92 @@
 <!DOCTYPE html>
+
 <html lang="lv">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LAIM Masāžas</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LAIM Masāžas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 flex flex-col md:flex-row">
+<!-- Sidebar -->
+<div class="w-full md:w-64 h-auto md:h-screen bg-gray-700 p-4 md:py-8" id="sidebar">
+<a href="index.html"><img class="w-44 m-auto mt-4 md:mt-8" src="assets/Logo-White.svg"/></a>
+<ul class="text-white mt-8 p-4 text-lg text-center md:text-left">
+<li class="mt-2"><a href="ParMums.html">PAR MUMS</a></li>
+<li class="mt-2"><a href="Sazinaties.html">SAZINĀTIES</a></li>
+<li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
+<li class="mt-2"><a href="Cenas.html">CENAS</a></li>
+</ul>
+</div>
+<!-- Image Gallery -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full p-4" id="view">
+<img class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg lightbox-thumb" data-src="assets/Bildes/Istaba1.jpg" alt="Masāžas istaba" src="assets/Bildes/Istaba1.jpg"/>
+<img class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg lightbox-thumb" data-src="assets/Bildes/Istaba2.jpg" alt="Masāžas istaba" src="assets/Bildes/Istaba2.jpg"/>
+<img class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg lightbox-thumb" data-src="assets/Bildes/Istaba3.jpg" alt="Masāžas istaba" src="assets/Bildes/Istaba3.jpg"/>
+<img class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg lightbox-thumb" data-src="assets/Bildes/Istaba4.jpg" alt="Sertifikāti" src="assets/Bildes/Istaba4.jpg"/>
+<img class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg lightbox-thumb" data-src="assets/Bildes/linda1.jpeg" src="assets/Bildes/linda1.jpeg"/>
+</div>
 
-    <body class="bg-gray-300 flex flex-col md:flex-row">
-        <!-- Sidebar -->
-        <div id="sidebar" class="w-full md:w-64 h-auto md:h-screen bg-gray-700 p-4 md:py-8">
-            <a href="index.html"><img src="assets/Logo-White.svg" class="w-44 m-auto mt-4 md:mt-8"></a>
-            
-            <ul class="text-white mt-8 p-4 text-lg text-center md:text-left">
-                <li class="mt-2"><a href="ParMums.html">PAR MUMS</a></li>
-                <li class="mt-2"><a href="Sazinaties.html">SAZINĀTIES</a></li>
-                <li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
-                <li class="mt-2"><a href="Cenas.html">CENAS</a></li>
-            </ul>
-        </div>
+<div class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" id="lightbox-modal">
+<div class="relative w-full max-w-4xl p-4">
+<button class="absolute top-4 right-4 text-white text-3xl" id="close-lightbox">×</button>
+<img class="w-full object-contain max-h-screen" id="lightbox-image" src=""/>
+<div class="absolute bottom-4 left-0 right-0 flex justify-between px-4">
+<button class="text-white text-2xl" id="prev-lightbox">←</button>
+<button class="text-white text-2xl" id="next-lightbox">→</button>
+</div>
+</div>
+</div>
 
-        <!-- Image Gallery -->
-        <div id="view" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full p-4">
-            <img src="assets/Bildes/Istaba1.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba2.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba3.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/Istaba4.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
-            <img src="assets/Bildes/linda1.jpeg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
-        </div>
-    </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("lightbox-modal");
+        const lightboxImage = document.getElementById("lightbox-image");
+        const thumbnails = document.querySelectorAll(".lightbox-thumb");
+        const closeBtn = document.getElementById("close-lightbox");
+        const prevBtn = document.getElementById("prev-lightbox");
+        const nextBtn = document.getElementById("next-lightbox");
+
+        let currentIndex = 0;
+
+        const openModal = (index) => {
+            currentIndex = index;
+            lightboxImage.src = thumbnails[currentIndex].dataset.src;
+            modal.classList.remove("hidden");
+        };
+
+        const closeModal = () => {
+            modal.classList.add("hidden");
+        };
+
+        const showNext = () => {
+            currentIndex = (currentIndex + 1) % thumbnails.length;
+            lightboxImage.src = thumbnails[currentIndex].dataset.src;
+        };
+
+        const showPrev = () => {
+            currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+            lightboxImage.src = thumbnails[currentIndex].dataset.src;
+        };
+
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener("click", () => openModal(index));
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+        nextBtn.addEventListener("click", showNext);
+        prevBtn.addEventListener("click", showPrev);
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
+        });
+    });
+</script>
+<script>
+    document.getElementById("toggle-sidebar").addEventListener("click", function() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("hidden");
+    });
+</script>
+</body>
 </html>

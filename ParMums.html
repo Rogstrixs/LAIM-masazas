@@ -22,7 +22,6 @@
 
         <!-- Main Content -->
         <div id="view" class="w-full p-4">
-            <img src="assets/Bildes/Istaba1.jpg" class="w-full h-48 md:h-64 object-cover rounded-lg drop-shadow-lg">
             
             <p class="mt-4"><span class="font-bold">LAIM masāžas</span> ir privāta ārstniecības iestāde ar augsti kvalificēta profesionāļa sniegtajiem pakalpojumiem.</p>
 
@@ -39,5 +38,11 @@
             <p class="mt-2">Tiekamies uz kušetes!</p>
             <p class="mt-2">Jūsu Linda Greiziņa</p>
         </div>
+        <script>
+            document.getElementById("toggle-sidebar").addEventListener("click", function() {
+                const sidebar = document.getElementById("sidebar");
+                sidebar.classList.toggle("hidden");
+            });
+        </script> 
     </body>
 </html>
