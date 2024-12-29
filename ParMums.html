@@ -5,6 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LAIM Masāžas</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Styles for the lightbox modal */
+            .lightbox-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 50;
+            }
+
+            .lightbox-modal img {
+                max-width: 90%;
+                max-height: 90%;
+            }
+
+            .lightbox-modal button {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                color: white;
+                cursor: pointer;
+            }
+        </style>
     </head>
 
     <body class="bg-gray-300 flex flex-col md:flex-row">
@@ -14,20 +45,19 @@
             
             <ul class="text-white mt-8 p-4 text-lg text-center md:text-left">
                 <li class="mt-2"><a href="ParMums.html">PAR MUMS</a></li>
-                <li class="mt-2"><a href="Sazinaties.html">SAZINĀTIES</a></li>
-                <li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
                 <li class="mt-2"><a href="Cenas.html">CENAS</a></li>
+                <li class="mt-2"><a href="Galerija.html">GALERIJA</a></li>
+                <li class="mt-2"><a href="Kontakti.html">KONTAKTI</a></li>
             </ul>
         </div>
 
         <!-- Main Content -->
         <div id="view" class="w-full p-4">
-            
             <p class="mt-4"><span class="font-bold">LAIM masāžas</span> ir privāta ārstniecības iestāde ar augsti kvalificēta profesionāļa sniegtajiem pakalpojumiem.</p>
 
             <p class="mt-2"><span class="font-bold">Specializējos</span> sporta un fizio masāžu veikšanā, pielietojot arī manuālās terapijas elementus un masāžas bankas.</p>
 
-            <p class="mt-2"><span class="font-bold">Piedāvāju</span> profesionālu palīdzību un iejūtīgu atbalstu. Katrs klients man ir īpašs. Garantēju individuālu pieeju un problēmu risinājumu katram klientam, personisku un diskrētu attieksmi. Sekoju mūsdienu tendencēm savā profesijā, regulāri apmeklējot kursus kvalifikācijas paaugstināšanai. Esmu absolvējusi Rīgas Stradiņa Universitātes rehabilitācijas fakultāti ergoterapijas un fizioterapijas jomās. Pēc pirmās medicīniskās izglītības iegūšanas, specializējos masiera profesijā, jo cilvēka ķermenis un masāža ir mani saistījusi jau no 12 gadu vecuma. Manās rokās varat justies droši, jo  esmu speciāliste ar 16 gadus ilgu pieredzi profesijā. Pieņemu klientus oficiāli reģistrētā ārstniecības iestādē ar profesionālu un mūsdienīgu iekārtojumu.</p>
+            <p class="mt-2"><span class="font-bold">Piedāvāju</span> profesionālu palīdzību un iejūtīgu atbalstu. Katrs klients man ir īpašs. Garantēju individuālu pieeju un problēmu risinājumu katram klientam, personisku un diskrētu attieksmi. Sekoju mūsdienu tendencēm savā profesijā, regulāri apmeklējot kursus kvalifikācijas paaugstināšanai. Esmu absolvējusi Rīgas Stradiņa Universitātes rehabilitācijas fakultāti ergoterapijas un fizioterapijas jomās. Pēc pirmās medicīniskās izglītības iegūšanas, specializējos masiera profesijā, jo cilvēka ķermenis un masāža ir mani saistījusi jau no 12 gadu vecuma. Manās rokās varat justies droši, jo esmu speciāliste ar 16 gadus ilgu pieredzi profesijā. Pieņemu klientus oficiāli reģistrētā ārstniecības iestādē ar profesionālu un mūsdienīgu iekārtojumu.</p>
 
             <p class="mt-2"><span class="font-bold">Mans mērķis</span> ir uzlabot manu klientu dzīves kvalitāti, atrast un likvidēt klientu veselības problēmas un sāpju cēloņus, atjaunot kustību prieku un labsajūtu ikdienā, jo ir tik labi dzīvot bez sāpēm.</p>
 
@@ -37,12 +67,39 @@
 
             <p class="mt-2">Tiekamies uz kušetes!</p>
             <p class="mt-2">Jūsu Linda Greiziņa</p>
+
+            <!-- Styled Profile Picture with Click-to-Enlarge -->
+            <div class="flex justify-center mt-4">
+                <img 
+                    src="assets/Bildes/linda1.jpeg" 
+                    alt="Linda Greiziņa"
+                    class="w-32 h-32 rounded-full border-4 border-gray-500 object-contain shadow-lg cursor-pointer"
+                    onclick="showLightbox()"
+                />
+            </div>
         </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal">
+            <button onclick="hideLightbox()">×</button>
+            <img src="assets/Bildes/linda1.jpeg" alt="Linda Greiziņa">
+        </div>
+
         <script>
-            document.getElementById("toggle-sidebar").addEventListener("click", function() {
+            // Sidebar Toggle Functionality
+            document.getElementById("toggle-sidebar")?.addEventListener("click", function() {
                 const sidebar = document.getElementById("sidebar");
                 sidebar.classList.toggle("hidden");
             });
-        </script> 
+
+            // Lightbox Modal Functions
+            function showLightbox() {
+                document.getElementById("lightbox-modal").style.display = "flex";
+            }
+
+            function hideLightbox() {
+                document.getElementById("lightbox-modal").style.display = "none";
+            }
+        </script>
     </body>
 </html>
